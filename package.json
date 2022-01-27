@@ -1,0 +1,66 @@
+{
+  "name": "@wmakeev/same-products-search",
+  "version": "0.0.0",
+  "description": "Заполнение похожих товаров для интернет-магазина",
+  "scripts": {
+    "env:example": "npx sync-dotenv@2.6.2",
+    "cleanup": "rm -rf build/",
+    "compile:dev": "tsc",
+    "compile": "tsc --build tsconfig.prod.json",
+    "test": "npm run build && NODE_OPTIONS=--enable-source-maps node -r dotenv/config ./build/test",
+    "lint": "eslint . --fix",
+    "build:dev": "npm run lint && npm run compile:dev",
+    "build": "npm run cleanup && npm run lint && npm run compile",
+    "version": "npm run env:example && auto-changelog -p && git add CHANGELOG.md .env.example",
+    "release": "np"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "quoteProps": "consistent",
+    "trailingComma": "none",
+    "arrowParens": "avoid"
+  },
+  "np": {
+    "yarn": false
+  },
+  "author": {
+    "name": "Vitaliy V. Makeev",
+    "email": "w.makeev@gmail.com"
+  },
+  "license": "%LICENCE%",
+  "devDependencies": {
+    "@types/lodash.memoize": "^4.1.6",
+    "@types/node": "^14.18.9",
+    "@types/node-fetch": "^2.5.12",
+    "@types/tape": "^4.13.2",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "@typescript-eslint/typescript-estree": "^5.10.0",
+    "auto-changelog": "^2.3.0",
+    "dotenv": "^14.2.0",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "moysklad-api-model": "^0.5.4",
+    "prettier": "^2.5.1",
+    "tape": "^5.4.1",
+    "typescript": "^4.5.5",
+    "typescript-eslint-language-service": "^5.0.0"
+  },
+  "dependencies": {
+    "@wmakeev/ecwid": "^3.0.1",
+    "lodash.memoize": "^4.1.2",
+    "moysklad": "^0.10.0",
+    "moysklad-helpers": "^3.0.1",
+    "moysklad-instance": "^3.0.3",
+    "node-fetch": "^2.6.7"
+  }
+}
